@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Meu Amor 💖</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #fff;
+            font-size: 32px;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            font-size: 18px;
+            max-width: 90%;
+            margin: 10px auto;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            line-height: 1.6;
+        }
+        .container { margin-top: 50px; padding: 0 10px; }
+        .slideshow {
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .slideshow img {
+            width: 100%;
+            display: none;
+        }
+        #contador {
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        .falling-emoji {
+            position: absolute;
+            font-size: 30px;
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(-10vh); }
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Para Minha Noiva Pi💖</h1>
+        <p> Desde o primeiro momento em que você entrou na minha vida, eu já sabia que tudo seria especial. Você não é apenas a minha namorada, você é a minha noiva, minha parceira, a pessoa com quem eu sonho dividir cada momento da vida. E não é qualquer sonho, é aquele de construir uma família linda e cheia de amor, risadas e muita complicidade, do jeitinho que nós dois merecemos.
+
+            Eu quero que saiba que, mesmo sendo a pessoa mais incrível que eu já conheci, você também é inteligente linda e perfeita. admito que esse site aqui deu um certo trabalho. 😅 Sim, tive que me organizar, planejar, pensar, me preparar pra essa surpresa. Só que isso é só uma partezinha do que eu tô disposto a fazer pra te ver sorrir e sentir todo o meu orgulho por ter você na minha vida.
+            
+            Estou me dedicando de corpo e alma, não só nesse site, mas no nosso futuro juntos. Te amo mais do que posso expressar em palavras e se depender de mim, só vamos construir coisas incríveis. Sei que às vezes fico zoando e te estressando, mas lá no fundo, o que mais quero é te fazer feliz e te mostrar o quanto você é especial. E é isso que eu vou fazer, agora e sempre.
+            Você é o meu tudo! Vamos fazer história juntos, pi🤍💍.</p>
+        <div id="contador"></div>
+        <div class="slideshow">
+          <img src="Site/Imagems/076cf3ec-68a7-41c0-9616-dcf3db03440c.jpg" class="slide" style="display: block;">
+          <img src="Site/Imagems/IMG-0768.jpg" class="slide">
+          <img src="Site/Imagems/IMG-0988.jpg" class="slide">
+          <img src="Site/Imagems/IMG-1063.jpg" class="slide">
+          <img src="Site/Imagems/IMG-1634.jpg" class="slide">
+          <img src="Site/Imagems/IMG-2997.png" class="slide">
+        </div>
+    </div>
+    <script>
+        function atualizarContador() {
+            const noivado = new Date("2023-11-17");
+            const agora = new Date();
+            const diferenca = agora - noivado;
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            document.getElementById("contador").innerText = `Estamos juntos há ${dias} dias! 💍`;
+        }
+        atualizarContador();
+        setInterval(atualizarContador, 60000);
+        
+        let index = 0;
+        function trocarSlide() {
+            let slides = document.querySelectorAll(".slide");
+            slides[index].style.display = "none";
+            index = (index + 1) % slides.length;
+            slides[index].style.display = "block";
+        }
+        setInterval(trocarSlide, 3000);
+        
+        function criarEmoji() {
+            const emojis = ["❤️", "🤍", "⭐"];
+            const emoji = document.createElement("div");
+            emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.className = "falling-emoji";
+            emoji.style.left = Math.random() * 100 + "vw";
+            emoji.style.top = "-5vh";
+            emoji.style.fontSize = Math.random() * 20 + 20 + "px";
+            emoji.style.animationDuration = Math.random() * 3 + 3 + "s";
+            document.body.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 5000);
+        }
+        setInterval(criarEmoji, 500);
+    </script>
+</body>
+</html>
